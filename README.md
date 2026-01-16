@@ -96,7 +96,5 @@ Disclaimer: This tool is a research prototype for risk screening, not automated 
 
 Data Privacy: No real patient data is included in this repository; all data is synthetically generated based on statistical distributions.
 
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/6486600f-6486-4bce-9c64-e772e831e4f2" />
-
 📧 Contact
 Sanskruti Sanjay Deshmukh LinkedIn | Email
