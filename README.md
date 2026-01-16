@@ -96,28 +96,32 @@ Disclaimer: This tool is a research prototype for risk screening, not automated 
 
 Data Privacy: No real patient data is included in this repository; all data is synthetically generated based on statistical distributions.
 
-## 🧠 System Diagram
-
-```mermaid
-graph TD
-    subgraph Inputs
-        I1[Clinical Note<br>Unstructured Text]:::input
-        I2[Patient Metrics<br>Age, Sleep, Stress]:::input
+flowchart TD
+    %% Subgraph: Input Data
+    subgraph Inputs ["📥 Data Ingestion"]
+        direction TB
+        I1("📝 Clinical Note<br/>(Unstructured Text)"):::input
+        I2("📊 Patient Metrics<br/>(Age, Sleep, Stress)"):::input
     end
 
-    subgraph "Feature Extraction Towers"
-        T1(DistilBERT Model<br>Text Encoder):::nlp
-        T2(Dense Network + BatchNorm<br>Tabular Encoder):::tabular
+    %% Subgraph: Encoders
+    subgraph Towers ["⚙️ Feature Extraction Towers"]
+        direction TB
+        T1["🤖 DistilBERT Model<br/>(Text Encoder)"]:::nlp
+        T2["🧮 Dense Network + BN<br/>(Tabular Encoder)"]:::tabular
     end
 
-    subgraph "Fusion & Classification"
-        V1[768-dim Vector]:::vector
-        V2[32-dim Vector]:::vector
-        C{Concatenation}:::fusion
-        MLP(MLP Classification Head):::head
-        O[Risk Prediction<br>Low / Medium / High]:::output
+    %% Subgraph: Fusion & Output
+    subgraph Fusion ["⚡ Fusion & Classification"]
+        direction TB
+        V1[/"768-dim Vector"\]:::vector
+        V2[/"32-dim Vector"\]:::vector
+        C(("🔗 Concatenation")):::fusion
+        MLP[["🧠 MLP Head"]]:::head
+        O{{"🚦 Risk Prediction<br/>(Low / Medium / High)"}}:::output
     end
 
+    %% Connections
     I1 --> T1
     I2 --> T2
     T1 --> V1
@@ -127,13 +131,13 @@ graph TD
     C --> MLP
     MLP --> O
 
-    %% Styling
-    classDef input fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
-    classDef nlp fill:#fff3e0,stroke:#e65100,stroke-width:2px,stroke-dasharray: 5 5;
-    classDef tabular fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;
-    classDef vector fill:#f3e5f5,stroke:#4a148c,stroke-width:1px;
-    classDef fusion fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,shape:circle;
-    classDef head fill:#ede7f6,stroke:#512da8,stroke-width:2px;
-    classDef output fill:#ffebee,stroke:#b71c1c,stroke-width:2px;
+    %% Styling Definitions
+    classDef input fill:#e1f5fe,stroke:#0277bd,stroke-width:2px,color:#000;
+    classDef nlp fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,stroke-dasharray: 5 5,color:#000;
+    classDef tabular fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000;
+    classDef vector fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px,stroke-dasharray: 3 3,color:#000;
+    classDef fusion fill:#fff9c4,stroke:#fbc02d,stroke-width:4px,color:#000;
+    classDef head fill:#ede7f6,stroke:#512da8,stroke-width:2px,color:#000;
+    classDef output fill:#ffebee,stroke:#c62828,stroke-width:4px,color:#000;
 📧 Contact
 Sanskruti Sanjay Deshmukh LinkedIn | Email
