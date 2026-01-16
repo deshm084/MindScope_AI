@@ -109,39 +109,43 @@ Code snippet
 
 graph TD
     subgraph Inputs
-        I1[Clinical Note<br>Unstructured Text]:::input
-        I2[Patient Metrics<br>Age, Sleep, Stress]:::input
+        I1[Clinical Note<br/>Unstructured Text]
+        I2[Patient Metrics<br/>Age, Sleep, Stress]
     end
 
-    subgraph "Feature Extraction Towers"
-        T1(DistilBERT Model<br>Text Encoder):::nlp
-        T2(Dense Network + BatchNorm<br>Tabular Encoder):::tabular
+    subgraph Feature_Extraction_Towers
+        T1[DistilBERT Model<br/>Text Encoder]
+        T2[Dense Network + BatchNorm<br/>Tabular Encoder]
     end
 
-    subgraph "Fusion & Classification"
-        V1[768-dim Vector]:::vector
-        V2[32-dim Vector]:::vector
-        C{Concatenation}:::fusion
-        MLP(MLP Classification Head):::head
-        O[Risk Prediction<br>Low / Medium / High]:::output
+    subgraph Fusion_And_Classification
+        V1[768-dim Vector]
+        V2[32-dim Vector]
+        C{Concatenation}
+        MLP[MLP Classification Head]
+        O[Risk Prediction<br/>Low / Medium / High]
     end
 
     I1 --> T1
     I2 --> T2
-    T1 --> V1
-    T2 --> V2
-    V1 --> C
-    V2 --> C
-    C --> MLP
-    MLP --> O
+    T1 --> V1 --> C
+    T2 --> V2 --> C
+    C --> MLP --> O
 
-    %% Styling for GitHub Render
     classDef input fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
     classDef nlp fill:#fff3e0,stroke:#e65100,stroke-width:2px,stroke-dasharray: 5 5;
     classDef tabular fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;
     classDef vector fill:#f3e5f5,stroke:#4a148c,stroke-width:1px;
-    classDef fusion fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,shape:circle;
+    classDef fusion fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
     classDef head fill:#ede7f6,stroke:#512da8,stroke-width:2px;
     classDef output fill:#ffebee,stroke:#b71c1c,stroke-width:2px;
+
+    class I1,I2 input;
+    class T1 nlp;
+    class T2 tabular;
+    class V1,V2 vector;
+    class C fusion;
+    class MLP head;
+    class O output;
 📧 Contact
 Sanskruti Sanjay Deshmukh LinkedIn | Email
