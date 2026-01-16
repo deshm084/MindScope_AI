@@ -96,11 +96,6 @@ Disclaimer: This tool is a research prototype for risk screening, not automated 
 
 Data Privacy: No real patient data is included in this repository; all data is synthetically generated based on statistical distributions.
 
-🧠 System Diagram
-Code snippet
-
-## 🧠 System Diagram
-
 ## 🧠 System Diagram
 
 ```mermaid
@@ -132,7 +127,7 @@ graph TD
     C --> MLP
     MLP --> O
 
-    %% Styling for GitHub Render
+    %% Styling
     classDef input fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
     classDef nlp fill:#fff3e0,stroke:#e65100,stroke-width:2px,stroke-dasharray: 5 5;
     classDef tabular fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;
