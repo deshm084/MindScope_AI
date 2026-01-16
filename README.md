@@ -95,6 +95,7 @@ MindScope_AI/
 Disclaimer: This tool is a research prototype for risk screening, not automated diagnosis. High-risk flags must always be reviewed by a human clinician.
 
 Data Privacy: No real patient data is included in this repository; all data is synthetically generated based on statistical distributions.
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/7aa07d24-9f84-4cfa-9a6f-0f137412ebe4" />
 
 📧 Contact
 Sanskruti Sanjay Deshmukh LinkedIn | Email
