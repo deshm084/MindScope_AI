@@ -1,0 +1,11 @@
+torch
+pandas
+numpy
+transformers
+faker
+tqdm
+scikit-learn
+fastapi      <-- NEW
+uvicorn      <-- NEW
+pydantic     <-- NEW
+pytest       <-- NEW
